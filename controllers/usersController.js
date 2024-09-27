@@ -152,7 +152,7 @@ const updateAvatar = async (req, res) => {
 
     const extension = path.extname(originalname);
     const filename = `${_id}${extension}`;
-    console.log("Generated Filename:", filename); // Debug log
+    console.log("Generated Filename:", filename); 
 
     const newPath = path.join("public", "avatars", filename);
 
@@ -161,11 +161,11 @@ const updateAvatar = async (req, res) => {
     const avatarURL = path.join("/avatars", filename);
 
     await User.findByIdAndUpdate(_id, { avatarURL });
-    console.log("Avatar URL saved to the database"); // Debug log
+    console.log("Avatar URL saved to the database");
 
     res.status(200).json({ avatarURL });
   } catch (error) {
-    console.error("Error in updateAvatar:", error); // Debug log
+    console.error("Error in updateAvatar:", error); 
     res.status(500).json({ message: error.message });
   }
 };
